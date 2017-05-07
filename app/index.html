@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<!--
+	Verti by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html ng-app="bookStore">
+
+<head>
+    <title>BookStore</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />  
+    <link rel="stylesheet" href="assets/css/style.css" />
+    
+    <link rel="stylesheet" href="assets/css/ng-notify.min.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+    <!-- inject:css -->
+    
+    <!-- endinject -->
+
+</head>
+
+<body class="homepage">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header-wrapper">
+            <header id="header" class="container">
+
+                <!-- Logo -->
+                <div id="logo">
+                    <h1><a href="#/">BKStore</a></h1>
+                    <span>by Mizael Santos</span>
+                </div>
+
+                <!-- Nav -->
+                <nav id="nav" ng-controller="headerSrv">
+                    <ul>
+                        <li class="current"><a href="#/">Welcome</a></li>
+                        <li ng-show="hasAnyPermission(['ROLE_ADMIN'])"><a href="#/book">Books</a></li>
+                        <li ng-show="hasAnyPermission(['ROLE_ADMIN'])"><a href="#/user">Users</a></li>
+                        <li><a ng-show="!authDetails.authenticated" href="#/accont">Create accont</a></li>
+                        <li ng-show="!authDetails.authenticated"><a href="#/login">Login</a></li>
+                        <li ng-show="authDetails.authenticated"><a ng-click="logout()" href="#/"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
+                        <li ng-show="authDetails.authenticated">
+                            <a href="#/">Mizael Santos</a>
+                            <ul>
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Accont</a></li>
+                                <li><a ng-click="logout()" href="#/"><i class="fa fa-power-off" aria-hidden="true"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+            </header>
+        </div>
+
+        <!-- Content -->
+        <ng-view />
+    </div>
+
+    <!-- Scripts -->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    
+
+    <!-- Angularjs -->
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/angular-route.min.js"></script>
+    <script src="assets/js/angular-cookies.min.js"></script>
+    <script src="assets/js/ngStorage.min.js"></script>
+    <script src="assets/js/ng-file-upload.js"></script>
+    <script src="assets/js/ng-file-upload-shim.js"></script>
+    <script src="assets/js/ng-notify.min.js"></script>
+    <script src="assets/js/checklist-model.js"></script>
+    <script src="assets/js/ngMask.min.js"></script>
+    <script src="assets/js/angular-viacep.min.js"></script>
+
+    <!-- inject:js -->
+    
+    <script src="src/index.js"></script>
+    
+    <script src="src/book/book.js"></script>
+    
+    <script src="src/accont/accont.js"></script>
+    
+    <script src="src/home/home.js"></script>
+    
+    <script src="src/home/slide.js"></script>
+    
+    <script src="src/login/login.js"></script>
+    
+    <script src="src/login/login.logout.service.js"></script>
+    
+    <script src="src/utils/header.js"></script>
+    
+    <script src="src/utils/interceptor.js"></script>
+    
+    <script src="src/utils/util.service.js"></script>
+    
+    <!-- endinject -->
+
+</body>
+
+</html>
