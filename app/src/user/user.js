@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bookStore')
-  .controller('UserCtrl', function($scope,ngNotify, RestSrv, SERVICE_PATH) {
+  .controller('UserCtrl', function($scope,ngNotify, RestSrv, SERVICE_PATH, $location) {
    
     $scope.user = {};
 
@@ -12,9 +12,9 @@ angular.module('bookStore')
       });
 
     $scope.saveUser = function(user) {
-        RestSrv.add(userUrl, user, function(newUser) {
+        RestSrv.add(userUrl, user, function(response) {
             $location.path('/');
-            ngNotify.set('User \'' + user.name + '\' alter.', 'success');
+            ngNotify.set('User \'' + user.person.name + '\' alter.', 'warn');
         });
       }; 
   });
