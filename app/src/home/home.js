@@ -4,11 +4,18 @@ angular.module('bookStore')
   .controller('HomeCtrl', function($scope, ngNotify, RestSrv, SERVICE_PATH) {
     $scope.title = '';
     $scope.books = [];
+    $scope.pagination = {};
+    $scope.totalPages = [];
     
     var bookUrl = SERVICE_PATH.PUBLIC_PATH + '/';
     
-    RestSrv.find(bookUrl, function(data) {
-        $scope.books = data;
+    RestSrv.find(bookUrl + 'list?page=0&size=6&sort=id', function(data) {
+        $scope.books = data.content;
+        $scope.pagination = data;
+        for(var i = 0; i < $scope.pagination.totalPages; i++){
+          $scope.totalPages.push(i);
+          
+        }
         //ngNotify.set('Loaded books with success.', 'success');
       });
     
@@ -17,11 +24,11 @@ angular.module('bookStore')
             $scope.books = data;
         });
     }
-    
-    $scope.all = function(){
-        RestSrv.find(bookUrl, function(data) {
-        $scope.books = data;
-        //ngNotify.set('Loaded books with success.', 'success');
-      });
-    }
+
+      $scope.findPagination = function(page) {
+        RestSrv.find(bookUrl + 'list?page='+ page +'&size=6&sort=id', function(response) {
+           $scope.books = response.content;
+
+        });
+      };
   });

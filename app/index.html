@@ -45,17 +45,10 @@
                     <ul>
                         <li class="current"><a href="#/">Welcome</a></li>
                         <li ng-show="hasAnyPermission(['ROLE_ADMIN'])"><a href="#/book">Books</a></li>
-                        <li ng-show="hasAnyPermission(['ROLE_ADMIN'])"><a href="#/user">Users</a></li>
                         <li><a ng-show="!authDetails.authenticated" href="#/accont">Create accont</a></li>
                         <li ng-show="!authDetails.authenticated"><a href="#/login">Login</a></li>
-                        <li ng-show="authDetails.authenticated"><a ng-click="logout()" href="#/"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
-                        <li ng-show="authDetails.authenticated">
-                            <a href="#/">Mizael Santos</a>
-                            <ul>
-                                <li><a href="#">Settings</a></li>
-                                <li><a href="#">Accont</a></li>
-                                <li><a ng-click="logout()" href="#/"><i class="fa fa-power-off" aria-hidden="true"></i>Logout</a></li>
-                            </ul>
+                        <li ng-show="authDetails.authenticated"><a href="#/user">Edit Informations</a></li>
+                        <li ng-show="authDetails.authenticated"><a ng-click="logout()" href="#/">Logout</a></li>
                         </li>
                     </ul>
                 </nav>
@@ -87,16 +80,16 @@
     <script src="assets/js/ng-file-upload-shim.js"></script>
     <script src="assets/js/ng-notify.min.js"></script>
     <script src="assets/js/checklist-model.js"></script>
-    <script src="assets/js/ngMask.min.js"></script>
     <script src="assets/js/angular-viacep.min.js"></script>
-
+    <script src="assets/js/angular-input-masks-standalone.min.js"></script>
+    
     <!-- inject:js -->
     
     <script src="src/index.js"></script>
     
-    <script src="src/book/book.js"></script>
-    
     <script src="src/accont/accont.js"></script>
+    
+    <script src="src/book/book.js"></script>
     
     <script src="src/home/home.js"></script>
     
@@ -105,6 +98,8 @@
     <script src="src/login/login.js"></script>
     
     <script src="src/login/login.logout.service.js"></script>
+    
+    <script src="src/user/user.js"></script>
     
     <script src="src/utils/header.js"></script>
     

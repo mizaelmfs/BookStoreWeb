@@ -44,8 +44,8 @@
 <!-- Features -->
 <div id="features-wrapper">
     <div class="container">
-       <input id="search" type="text" class="6u  -3u 12u(medium)" ng-keypress="finByTitle()" ng-model="title"/>
-       <button type="button" ng-click="all()"><i class="fa fa-home" aria-hidden="true"></i></button>
+       <input id="search" type="text" class="6u  -3u 12u(medium)" ng-model="title"/>
+       <button id="btn-search" type="button" ng-click="finByTitle()"><i class="fa fa-search" aria-hidden="true"></i></i></button>
         <div class="row">
             <div class="4u 12u(medium)" ng-repeat="book in books">
                 <!-- Box -->
@@ -64,21 +64,7 @@
             </div>
             <nav aria-label="Page navigation" class="12u 6u$(medium) 12u$(small)" id="pagination">
                 <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
+                    <li ng-repeat="page in totalPages"><a ng-click="findPagination(page)" href="#/">{{page+1}}</a></li>
                 </ul>
             </nav>
         </div>

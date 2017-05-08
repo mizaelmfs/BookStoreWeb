@@ -7,7 +7,9 @@
 
         <div>
             <label for="image">Image of Book</label>
-            <input type="file" ngf-select="" ng-change="imageBase()" ng-model="book.image" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="5MB" ngf-min-height="100" ngf-resize="{width: 300, height: 300}" />
+            <input type="file" ngf-select="" ng-change="imageBase()" ng-model="book.image" name="file" 
+                ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB" ngf-min-height="100" 
+                ngf-resize="{width: 300, height: 300}"/>
             <br/>
             <img ng-src='data:image/*; base64,{{book.image}}' id="id-img" class="img-show"/>
         </div>
@@ -26,7 +28,7 @@
         <input type="Text" id="country" name="country" ng-model="book.author.country" />
 
         <label for="dateBirth">Author Date birth</label>
-        <input type="date" id="dateBirth" name="dateBirth" ng-model="book.author.dateBirth" />
+        <input type="text" id="dateBirth" name="dateBirth" ui-date-mask ng-model="book.author.dateBirth" />
         <div>
             <label for="description">Description</label>
             <textarea type="text" id="description" name="description" ng-model="book.description" required />
@@ -37,7 +39,7 @@
         </div>
         <div>
             <label for="price">Price</label>
-            <input type="number" step="0.01"  id="price" name="price" ng-model="book.price" required />
+            <input type="text" ui-money-mask="2" id="price" name="price" ng-model="book.price" required />
         </div>
         <div>
             <label for="Year">Year</label>
@@ -93,6 +95,11 @@
             </tr>
         </tbody>
     </table>
+     <nav aria-label="Page navigation" class="12u 6u$(medium) 12u$(small)" id="pagination">
+                <ul class="pagination">
+                    <li ng-repeat="page in totalPages"><a ng-click="findPagination(page)" href="#/book">{{page+1}}</a></li>
+                </ul>
+            </nav>
 </div>
 
 <!-- Footer -->

@@ -10,7 +10,7 @@ angular.module('bookStore')
 
     $scope.saveUser = function(user) {
         RestSrv.add(userUrl, user, function(newUser) {
-            $location.path('/');
+            $location.path('/login');
             ngNotify.set('User \'' + user.name + '\' added.', 'success');
         });
       };  

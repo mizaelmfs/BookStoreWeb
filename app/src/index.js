@@ -3,7 +3,7 @@
 var BASE_URL = 'http://localhost:8080';
 
 angular.module('bookStore', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCookies', 'ngStorage', 
-                             'ngFileUpload','ngMask','angular.viacep'])
+                             'ngFileUpload', 'angular.viacep', 'ui.utils.masks'])
 .constant('SERVICE_PATH', {
     'ROOT_PATH': BASE_URL,
     'PUBLIC_PATH': BASE_URL + '/public',

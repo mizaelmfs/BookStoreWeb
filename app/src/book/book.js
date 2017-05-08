@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('bookStore')
-  .controller('BookCtrl', function($scope, ngNotify, RestSrv, SERVICE_PATH, $filter) {
+  .controller('BookCtrl', function($scope, ngNotify, RestSrv, SERVICE_PATH, $localStorage, $location) {
     
     $scope.book = {};
     $scope.books = [];
+    $scope.pagination = {};
+    $scope.totalPages = [];
     $scope.showAddEditUser = false;
 
      //show author
@@ -33,7 +35,6 @@ angular.module('bookStore')
     };
     
     $scope.saveBook = function(book) {
-        $scope.book.author.date = $filter('date')($scope.book.author.date, 'yyyy/MM/dd');
         RestSrv.add(bookUrl, book, function(newBook) {
           if(book.id){
             for (var i = 0; i < $scope.books.length; i++) {
@@ -49,10 +50,22 @@ angular.module('bookStore')
         });
       };
 
-     RestSrv.find(bookUrl, function(data) {
-        $scope.books = data;
-        //ngNotify.set('Loaded books with success.', 'success');
+     RestSrv.find(bookUrl + ' /list?page=0&size=4&sort=id', function(data) {
+        $scope.books = data.content;
+        $scope.pagination = data;
+        for(var i = 0; i < $scope.pagination.totalPages; i++){
+          $scope.totalPages.push(i);
+          
+        }
+        
       });
+
+       $scope.findPagination = function(page) {
+        RestSrv.find(bookUrl + '/list?page='+ page +'&size=4&sort=id', function(response) {
+           $scope.books = response.content;
+
+        });
+      };
 
     $scope.imageBase = function(){
     var reader = new window.FileReader();
