@@ -1,14 +1,29 @@
 @import 'libs/slider';
 @import "bootstrap/bootstrap";
 
-
-
 /* button search  */
-#btn-search{
+#btn-cart{
+    margin-bottom: 5%;
+    
+}
+
+/* button plus-minus */
+.btn-plus-minus{
     background-color: transparent;
     border: 0 !important;
     padding: 0 !important;
-    color: #666666!important;
+    color: #666666 !important;
+    &:hover{
+        background-color: transparent;
+        color: #0090c5 !important;
+    }
+}
+
+/* Input quantity  */
+#input-quantity{
+    //width: 60px;
+    //height: 30px;
+    text-align: center !important;
 }
 
 /* Show Image  */
@@ -40,7 +55,8 @@
 
 /* Search */
 #search{
-    margin-bottom: 20px;
+    margin-top: 2%;
+    margin-bottom: 2%;
     border-radius: 5px;
 }
 

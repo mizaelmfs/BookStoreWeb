@@ -44,10 +44,10 @@
 <!-- Features -->
 <div id="features-wrapper">
     <div class="container">
-       <input id="search" type="text" class="6u  -3u 12u(medium)" ng-model="title"/>
-       <button id="btn-search" type="button" ng-click="finByTitle()"><i class="fa fa-search" aria-hidden="true"></i></i></button>
+       <input id="search" placeholder="Find book by title here" type="text" class="8u -3u 12u(medium)" ng-keyup="backspace($event)" ng-keypress="finByTitle()" ng-model="title"/>
+       <button id="btn-cart" ng-click="cart()" type="button" class="8u -3u 12u(medium)"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp Cart</button>
         <div class="row">
-            <div class="4u 12u(medium)" ng-repeat="book in books">
+            <div class="4u 12u(medium)" ng-repeat="book in books track by $index">
                 <!-- Box -->
                 <section class="box feature">
                     <a href="#" class="image featured"><img ng-src="data:image/*; base64,{{book.image}}" alt="" /></a>
@@ -59,6 +59,7 @@
                         <p><strong>Description:</strong> {{book.description}}</p>
                         <p><strong>Year:</strong> {{book.year}}</p>
                         <p><strong>$:</strong> {{book.price | currency:'':2}}</p>
+                        <p><button type="button" ng-click="plus(book)" class="12u"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
                     </div>
                 </section>
             </div>

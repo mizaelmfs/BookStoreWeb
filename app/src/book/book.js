@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bookStore')
-  .controller('BookCtrl', function($scope, ngNotify, RestSrv, SERVICE_PATH, $localStorage, $location) {
+  .controller('BookCtrl', function($scope, ngNotify, RestSrv, SERVICE_PATH) {
     
     $scope.book = {};
     $scope.books = [];

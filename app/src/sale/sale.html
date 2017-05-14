@@ -1,0 +1,34 @@
+<button id="btn-cart" ng-click="saveSale()" type="button" class="8u -3u 12u(medium)">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+        &nbsp Full Value $: {{sale.fullValue | currency:'':2}}
+    </button>
+    
+<table id="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="itensSale in sale.itensSale track by $index">
+                <td>{{itensSale.book.title}}</td>
+                <td>{{itensSale.book.isbn}}</td>
+                <td>{{itensSale.book.author.name}}</td>
+                <td>{{itensSale.book.quantity}}</td>
+                <td>{{itensSale.book.price | currency:'':2}}</td>
+                <td><img ng-src='data:image/*; base64,{{itensSale.book.image}}'/>
+                </td>
+                <td>
+                    <button type="button" ng-click="delete(itensSale.book)">
+					<i class="fa fa-trash" aria-hidden="true"></i>
+				</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>

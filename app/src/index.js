@@ -1,6 +1,6 @@
 'use strict';
 
-var BASE_URL = 'http://localhost:8080';
+var BASE_URL = 'https://bookstores.herokuapp.com';
 
 angular.module('bookStore', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCookies', 'ngStorage', 
                              'ngFileUpload', 'angular.viacep', 'ui.utils.masks'])
@@ -26,6 +26,10 @@ angular.module('bookStore', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCookie
       .when('/user', {
         templateUrl: 'src/user/user.html',
         controller: 'UserCtrl'
+      })
+      .when('/sale', {
+        templateUrl: 'src/sale/sale.html',
+        controller: 'SaleCtrl'
       })
       .when('/accont', {
         templateUrl: 'src/accont/accont.html',
