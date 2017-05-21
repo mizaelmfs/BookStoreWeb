@@ -777,6 +777,10 @@
 			body, input, select, textarea {
 				font-size: 12pt;
 			}
+        
+        #id-toogle{
+            display: none;
+        }
 
 	}
 
@@ -801,6 +805,10 @@
 	@include breakpoint(medium) {
 
 		/* Basic */
+        
+        #id-toogle{
+            display: block;
+        }
 
 			html, body {
 				overflow-x: hidden;

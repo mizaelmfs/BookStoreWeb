@@ -2,6 +2,45 @@
 @import "bootstrap/bootstrap";
 
 /* button search  */
+
+
+.toogle-custom {
+     ul {
+		li {
+			line-height: 4.5em;
+			padding-left: 1.5em;
+
+			a {
+				font-weight: 800;
+				letter-spacing: 0.025em;
+				color: #696969;
+				text-decoration: none !important;
+				border-radius: 6px;
+				padding: 0.5em 1em 0.5em 1em;
+			}
+
+			&:hover {
+				a {
+					background: #fff;
+				}
+			}
+
+			&.active {
+				a {
+					background: #fff;
+				}
+			}
+		}
+	}
+}
+
+
+#btn-toogle{
+    background: rgba(0, 0, 0, 0.5) !important;
+    opacity: 0.35 !important;
+    border-radius: 6px !important;
+}
+
 #btn-cart{
     margin-bottom: 5%;
     

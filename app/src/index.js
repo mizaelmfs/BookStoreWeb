@@ -1,6 +1,7 @@
 'use strict';
 
-var BASE_URL = 'https://bookstores.herokuapp.com';
+//var BASE_URL = 'https://bookstores.herokuapp.com';
+var BASE_URL = 'https://localhost:8080';
 
 angular.module('bookStore', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCookies', 'ngStorage', 
                              'ngFileUpload', 'angular.viacep', 'ui.utils.masks'])
